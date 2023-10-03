@@ -10,7 +10,7 @@ export const Capture = () => {
 
   const getVideo = async () => {
     try {
-      const stream = await navigator.mediaDevices.getUserMedia({ video: { width: 1920, height: 1080 } });
+      const stream = await navigator.mediaDevices.getUserMedia({ video: { width: 1280, height: 720 } });
       let video = videoRef.current;
       video.srcObject = stream;
 
