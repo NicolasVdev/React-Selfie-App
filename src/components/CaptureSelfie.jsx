@@ -1,30 +1,14 @@
-export const CaptureSelfie = async () => {
-  try {
-    const stream = await navigator.mediaDevices.getUserMedia({ video: true });
-    const videoElement = document.createElement("video");
-    document.body.appendChild(videoElement);
-    videoElement.srcObject = stream;
+export const CaptureSelfie = async (videoRef, photoRef, setHasPhoto) => {
+  const width = 414;
+  const height = width / (16 / 9);
 
-    return new Promise((resolve) => {
-      videoElement.onloadedmetadata = async () => {
-        const canvas = document.createElement("canvas");
-        canvas.width = videoElement.videoWidth;
-        canvas.height = videoElement.videoHeight;
-        const ctx = canvas.getContext("2d");
-        ctx.drawImage(videoElement, 0, 0, canvas.width, canvas.height);
-        const selfieDataUrl = canvas.toDataURL("image/jpeg");
+  let video = videoRef.current;
+  let photo = photoRef.current;
 
-        // Arrêtez la vidéo et libérez le flux de la caméra
-        stream.getTracks().forEach((track) => track.stop());
-        videoElement.remove();
+  photo.width = width;
+  photo.height = height;
 
-        resolve(selfieDataUrl);
-      };
-
-      videoElement.play();
-    });
-  } catch (error) {
-    console.error("Erreur lors de l'accès à la caméra : ", error);
-    throw error;
-  }
+  let ctx = photo.getContext('2d');
+  ctx.drawImage(video, 0, 0, width, height);
+  setHasPhoto(true);
 };
