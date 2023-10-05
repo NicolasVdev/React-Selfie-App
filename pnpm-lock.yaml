@@ -17,6 +17,9 @@ dependencies:
   react-router-dom:
     specifier: ^6.16.0
     version: 6.16.0(react-dom@18.2.0)(react@18.2.0)
+  react-webcam:
+    specifier: ^7.1.1
+    version: 7.1.1(react-dom@18.2.0)(react@18.2.0)
 
 devDependencies:
   '@types/react':
@@ -5136,7 +5139,17 @@ packages:
     dependencies:
       object-assign: 4.1.1
       react: 18.2.0
-      react-is: 16.13.1
+      react-is: 18.2.0
+    dev: false
+
+  /react-webcam@7.1.1(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-2W5WN8wmEv8ZlxvyAlOxVuw6new8Bi7+KSPqoq5oa7z1KSKZ72ucaKqCFRtHSuFjZ5sh5ioS9lp4BGwnaZ6lDg==}
+    peerDependencies:
+      react: '>=16.2.0'
+      react-dom: '>=16.2.0'
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
     dev: false
 
   /react@18.2.0:
