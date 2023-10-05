@@ -1,6 +1,6 @@
 import { useCallback, useRef, useState } from 'react';
 import Webcam from 'react-webcam';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const videoConstraints = {
   width: 1280,
@@ -11,10 +11,12 @@ const videoConstraints = {
 export const Camera = () => {
   const [url, setUrl] = useState(null);
   const webcamRef = useRef(null);
+  const navigate = useNavigate();
   const capturePhoto = useCallback(async() => {
     const imageSrc = webcamRef.current.getScreenshot();
-    setUrl(imageSrc)
-  }, [webcamRef])
+    setUrl(imageSrc);
+    navigate('/show', { state: { imageUrl: imageSrc } });
+  }, [webcamRef, navigate])
 
   const onUserMedia = (e) => {
     console.log(e);
@@ -31,8 +33,12 @@ export const Camera = () => {
     mirrored={true}
     />
     <div className='button-container'>
-      <Link to="/thank_you" onClick={capturePhoto}>SNAP</Link>
-      <button onClick={() => setUrl(null)}>Refresh</button>
+      <button onClick={capturePhoto}>
+        SNAP
+      </button>
+      <button onClick={() => setUrl(null)}>
+        Refresh
+        </button>
     </div>
 
     {url && (
