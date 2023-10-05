@@ -1,5 +1,6 @@
 import { useCallback, useRef, useState } from 'react';
 import Webcam from 'react-webcam';
+import { Link } from 'react-router-dom';
 
 const videoConstraints = {
   width: 1280,
@@ -30,7 +31,7 @@ export const Camera = () => {
     mirrored={true}
     />
     <div className='button-container'>
-      <button onClick={capturePhoto}>SNAP</button>
+      <Link to="/thank_you" onClick={capturePhoto}>SNAP</Link>
       <button onClick={() => setUrl(null)}>Refresh</button>
     </div>
 
