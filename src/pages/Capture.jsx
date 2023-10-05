@@ -34,7 +34,7 @@ export const Capture = () => {
   return (
     <div className='App'>
       <div className="camera">
-        <video ref={videoRef}></video>
+        <video className='h-full' ref={videoRef}></video>
         <button onClick={handleCaptureSelfie}>SNAP!</button>
       </div>
       <div className={`result${hasPhoto ? ' hasPhoto' : ''}`}>
