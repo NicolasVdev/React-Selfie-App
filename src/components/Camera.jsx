@@ -36,9 +36,6 @@ export const Camera = () => {
       <button onClick={capturePhoto}>
         SNAP
       </button>
-      <button onClick={() => setUrl(null)}>
-        Refresh
-        </button>
     </div>
 
     {url && (

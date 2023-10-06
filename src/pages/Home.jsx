@@ -4,10 +4,17 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useNavigate } from 'react-router-dom';
 
 export const Home = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const saveEmailToLocalStorage = (data) => {
-    localStorage.setItem("email", data.email);
-    navigate("/capture")
+    const { email } = data;
+    const existingEmails = JSON.parse(localStorage.getItem('emails')) || [];
+    if (existingEmails.includes(email)) {
+      alert("Cet e-mail a déjà été utilisé, veuillez en choisir un autre");
+      return;
+    }
+    existingEmails.push(email);
+    localStorage.setItem('emails', JSON.stringify(existingEmails));
+    navigate("/capture");
   };
   const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g
   const schema = yup.object().shape({

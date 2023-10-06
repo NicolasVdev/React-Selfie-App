@@ -12,6 +12,7 @@ export const Thanks = () => {
       } else {
         clearInterval(restart)
         navigate('/');
+        window.location.reload();
     }
   }, 1000);
     return () => clearTimeout(restart);

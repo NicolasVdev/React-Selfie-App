@@ -7,14 +7,14 @@ export const PhotoPage = ({imageUrl}) => {
   console.log(countAtom);
   const navigate = useNavigate();
 
-  const lastChanceorNot = () => {
+  const lastChanceOrNot = () => {
     if (count > 0) {
       setCount(count - 1);
       navigate('/capture');
       console.log(count);
     } else {
+      setCount(2);
       navigate('/thank_you');
-      setCount(useAtom(countAtom));
     }
   };
 
@@ -23,7 +23,7 @@ export const PhotoPage = ({imageUrl}) => {
     <div>
       {imageUrl && <img src={imageUrl} alt="Selfie" />}
       <div className='button-container'>
-        <button onClick={lastChanceorNot}>TRY AGAIN</button>
+        <button onClick={lastChanceOrNot}>TRY AGAIN</button>
         <Link to="/thank_you">BG</Link>
     </div>
     </div>
