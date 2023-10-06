@@ -2,21 +2,9 @@ import * as yup from 'yup';
 import { useForm} from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useNavigate } from 'react-router-dom';
-import { checkCameraPermission } from '../store/Permissions';
 
 export const Home = () => {
   const navigate = useNavigate();
-  const handleCameraAccess = async () => {
-    const cameraPermissionGranted = await checkCameraPermission();
-    
-    if (cameraPermissionGranted) {
-      // L'autorisation de la caméra est accordée, vous pouvez naviguer vers la page de capture.
-      navigate('/capture');
-    } else {
-      // L'autorisation de la caméra n'est pas accordée, vous pouvez demander à l'utilisateur de l'autoriser.
-      alert('Pour utiliser la caméra, veuillez autoriser l\'accès à la caméra.');
-    }
-  };
   const saveEmailToLocalStorage = (data) => {
     const { email } = data;
     const existingEmails = JSON.parse(localStorage.getItem('emails')) || [];
