@@ -19,30 +19,28 @@ export const Camera = () => {
   }, [webcamRef, navigate])
 
   const onUserMedia = (e) => {
-    console.log(e);
   }
 
   return (
     <div className='webcam-container'>
-    <Webcam
-    ref={webcamRef}
-    audio={false}
-    screenshotFormat='image/webp'
-    videoConstraints={videoConstraints}
-    onUserMedia={onUserMedia}
-    mirrored={true}
-    />
-    <div className='button-container'>
-      <button onClick={capturePhoto}>
-        SNAP
-      </button>
-    </div>
-
-    {url && (
-      <div>
-        <img src={url} alt="Screenshot" />
+      <Webcam
+      ref={webcamRef}
+      audio={false}
+      screenshotFormat='image/webp'
+      videoConstraints={videoConstraints}
+      onUserMedia={onUserMedia}
+      mirrored={true}
+      />
+      <div className='button-container'>
+        <button onClick={capturePhoto}>
+          SNAP
+        </button>
       </div>
-    )}
+      {url && (
+        <div>
+          <img src={url} alt="Screenshot" />
+        </div>
+      )}
     </div>
   )
 }

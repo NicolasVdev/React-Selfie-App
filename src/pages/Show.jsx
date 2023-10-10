@@ -7,7 +7,7 @@ export const Show = () => {
 
   return (
     <div>
-       <PhotoPage imageUrl={imageUrl} />
+      <PhotoPage imageUrl={imageUrl} />
     </div>
   )
 }

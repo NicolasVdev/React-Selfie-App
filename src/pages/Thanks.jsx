@@ -13,15 +13,19 @@ export const Thanks = () => {
         clearInterval(restart)
         navigate('/');
         window.location.reload();
-    }
-  }, 1000);
+      }
+    }, 1000);
     return () => clearTimeout(restart);
   }, [countdown, navigate]);
 
   return (
     <>
-      <div>Thanks for your participation</div>
-      <div>Redirection in {countdown} seconds</div>
+      <div>
+        Thanks for your participation
+      </div>
+      <div>
+        Redirection in {countdown} seconds
+      </div>
     </>
   )
 }
