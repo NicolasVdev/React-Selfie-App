@@ -12,18 +12,13 @@ export const PhotoPage = ({imageUrl}) => {
   const storeSelfieAndNavigate = async () => {
     if (imageUrl) {
       try {
-        // Récupérez l'e-mail depuis la base de données
         const email = await getEmailFromLastRecord();
-
         if (!email) {
           console.error('E-mail introuvable dans la base de données.');
           return;
         }
-
         const selfieUrl = await storeSelfieInSupabase(imageUrl);
-
         if (selfieUrl) {
-          // Envoyez l'e-mail avec le selfie
           sendEmailWithSelfie(email, imageUrl);
           console.log('Selfie stocké avec succès et e-mail envoyé');
         } else {

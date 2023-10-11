@@ -7,7 +7,7 @@ sgMail.setApiKey(import.meta.env.VITE_SENDGRID_API_KEY);
 export const sendEmailWithSelfie = async (email, imageUrl) => {
   try {
     const response = await axios.get(imageUrl, { responseType: 'arraybuffer' });
-    const imageBase64 = Buffer.from(response.data, 'binary').toString('base64');
+    const imageBase64 = Buffer.from(response.data).toString('base64');
     const attachment = {
       content: imageBase64,
       filename: 'selfie.webp',

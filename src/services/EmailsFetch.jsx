@@ -29,7 +29,7 @@ export const getEmailFromLastRecord = async () => {
   try {
     const { data: lastRecord, error } = await supabase
       .from('Attendees')
-      .select('id, email') // Inclure le champ 'email' dans la sélection
+      .select('id, email')
       .order('id', { ascending: false })
       .limit(1);
 
@@ -38,7 +38,6 @@ export const getEmailFromLastRecord = async () => {
       return null;
     }
 
-    // Vérifiez si des données ont été récupérées
     if (lastRecord.length > 0) {
       const email = lastRecord[0].email;
       return email;
