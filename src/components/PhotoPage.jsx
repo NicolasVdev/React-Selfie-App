@@ -2,6 +2,8 @@ import { useNavigate, Link } from 'react-router-dom';
 import { useAtom } from 'jotai';
 import { countAtom } from '../store/Atom';
 import { storeSelfieInSupabase } from '../services/SelfiesFetch';
+import { sendEmailWithSelfie } from '../services/Mailer';
+import { getEmailFromLastRecord } from '../services/EmailsFetch';
 
 export const PhotoPage = ({imageUrl}) => {
   const [count, setCount] = useAtom(countAtom);
@@ -10,14 +12,29 @@ export const PhotoPage = ({imageUrl}) => {
   const storeSelfieAndNavigate = async () => {
     if (imageUrl) {
       try {
-        await storeSelfieInSupabase(imageUrl);
-        console.log('Selfie stocké avec succès');
+        // Récupérez l'e-mail depuis la base de données
+        const email = await getEmailFromLastRecord();
+
+        if (!email) {
+          console.error('E-mail introuvable dans la base de données.');
+          return;
+        }
+
+        const selfieUrl = await storeSelfieInSupabase(imageUrl);
+
+        if (selfieUrl) {
+          // Envoyez l'e-mail avec le selfie
+          sendEmailWithSelfie(email, imageUrl);
+          console.log('Selfie stocké avec succès et e-mail envoyé');
+        } else {
+          console.error('Erreur lors du stockage du selfie');
+        }
       } catch (error) {
-        console.error('Erreur lors du stockage du selfie');
+        console.error('Erreur lors du stockage du selfie', error);
       }
     }
     navigate('/thank_you');
-  }
+  };
 
   const lastChanceOrNot = () => {
     if (count > 0) {
@@ -28,7 +45,7 @@ export const PhotoPage = ({imageUrl}) => {
 
   if (count > 0) {
   return (
-    <div>
+    <div className='webcam-container'>
       {imageUrl && <img src={imageUrl} alt="Selfie" />}
       <div className='button-container'>
         <button onClick={lastChanceOrNot}>TRY AGAIN</button>
@@ -37,7 +54,7 @@ export const PhotoPage = ({imageUrl}) => {
     </div>
   )} else {
     return (
-      <div>
+      <div className='webcam-container'>
       {imageUrl && <img src={imageUrl} alt="Selfie" />}
       <div className='button-container'>
         <Link to='/thank_you' onClick={storeSelfieAndNavigate}>BG</Link>

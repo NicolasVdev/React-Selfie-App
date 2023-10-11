@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 
 export const Thanks = () => {
   const navigate = useNavigate();
-  const [countdown, setCountdown] = useState(5);
+  const [countdown, setCountdown] = useState(100);
 
   useEffect(() => {
     const restart = setInterval(() => {

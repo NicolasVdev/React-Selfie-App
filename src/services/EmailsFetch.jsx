@@ -24,3 +24,30 @@ export const addEmail = async (email) => {
     console.log('E-mail ajouté avec succès:', email);
   }
 };
+
+export const getEmailFromLastRecord = async () => {
+  try {
+    const { data: lastRecord, error } = await supabase
+      .from('Attendees')
+      .select('id, email') // Inclure le champ 'email' dans la sélection
+      .order('id', { ascending: false })
+      .limit(1);
+
+    if (error) {
+      console.error('Erreur lors de la récupération du dernier enregistrement:', error);
+      return null;
+    }
+
+    // Vérifiez si des données ont été récupérées
+    if (lastRecord.length > 0) {
+      const email = lastRecord[0].email;
+      return email;
+    } else {
+      console.error('Aucun enregistrement trouvé dans la base de données.');
+      return null;
+    }
+  } catch (error) {
+    console.error('Erreur lors de la récupération de l\'e-mail depuis Supabase:', error);
+    throw error;
+  }
+};

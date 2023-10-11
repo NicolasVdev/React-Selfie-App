@@ -9,12 +9,13 @@ export const Home = () => {
 
   const saveEmailToDatabase = async (data) => {
     const { email } = data;
-    const emailAlreadyExist = await emailExists(email);
+    const lowercaseEmail = email.toLowerCase();
+    const emailAlreadyExist = await emailExists(lowercaseEmail);
     if (emailAlreadyExist) {
       alert("Cet e-mail a déjà été utilisé, veuillez en choisir un autre");
       return;
     }
-    await addEmail(email);
+    await addEmail(lowercaseEmail);
     navigate("/capture");
   };
 
