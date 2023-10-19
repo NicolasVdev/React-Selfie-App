@@ -21,3 +21,17 @@ video {
   width: 100%;
   gap: 50px;
 }
+
+body {
+  background-color: #191919;
+}
+
+.input-email {
+  border: 2px solid goldenrod;
+  outline: none;
+}
+
+.input-email:focus {
+  border-color: gold;
+  box-shadow: 0 0 5px gold;
+}
