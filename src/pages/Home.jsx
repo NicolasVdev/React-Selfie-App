@@ -55,7 +55,9 @@ export const Home = () => {
         />
         </div>
         {errors.email?.message && <p className="flex justify-center py-2 font-medium text-red-500 text-lg">{errors.email?.message}</p>}
-        <input type="submit" className='text-white'  value="C'est à toi"/>
+        <div className='flex justify-center pt-12'>
+        <input type="submit" className='font-bold border-2 w-fit px-6 py-1 rounded-md input-btn'  value="PARTICIPER"/>
+        </div>
       </form>
     </>
   )

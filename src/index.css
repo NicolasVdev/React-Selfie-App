@@ -24,6 +24,7 @@ video {
 
 body {
   background-color: #191919;
+  color: white;
 }
 
 .input-email {
@@ -35,3 +36,20 @@ body {
   border-color: gold;
   box-shadow: 0 0 5px gold;
 }
+
+.input-btn {
+  outline: none;
+  cursor: pointer;
+  border-color: gold;
+  box-shadow: 0 0 5px gold;
+  background-color: gold;
+  color: #191919;
+}
+
+.input-btn:focus {
+  border-color: goldenrod;
+  box-shadow: 0 0 5px goldenrod;
+  background-color: goldenrod;
+  color: #191919;
+}
+
