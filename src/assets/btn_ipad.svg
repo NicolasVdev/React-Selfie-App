@@ -3,7 +3,7 @@
   <circle cx="50" cy="50" r="42" fill="white" />
 
   <!-- Cercle extérieur fin avec un écart plus prononcé -->
-  <circle cx="50" cy="50" r="48" fill="none" stroke="white" stroke-width="2" />
+  <circle cx="50" cy="50" r="48" fill="none" stroke="white" stroke-width="4" />
 
   <!-- Icône de l'appareil photo -->
   <circle cx="50" cy="50" r="20" fill="white" />
