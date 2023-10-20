@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useNavigate } from "react-router-dom";
 import { emailExists, addEmail } from "../services/EmailsFetch";
+import logo from "../assets/LOGO_3F_2021web.png"
 
 export const Home = () => {
   const navigate = useNavigate();
@@ -38,7 +39,7 @@ export const Home = () => {
   return (
     <>
       <img
-        src="https://les3fromages.com/wp-content/uploads/2022/04/LOGO_3F_2021web.png"
+        src={logo}
         className="h-100 w-300 flex justify-center"
         alt="Les 3 Fromages"
         title="LOGO_3F_2021web"
