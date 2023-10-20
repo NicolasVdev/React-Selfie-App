@@ -42,9 +42,9 @@ export const PhotoPage = ({imageUrl}) => {
   return (
     <div className='webcam-container'>
       {imageUrl && <img src={imageUrl} alt="Selfie" />}
-      <div className='button-container'>
-        <button onClick={lastChanceOrNot}>TRY AGAIN</button>
-        <button onClick={storeSelfieAndNavigate}>BG</button>
+      <div className='button-container gap-[150px]'>
+        <button className="font-bold w-fit px-6 py-1 rounded-md uppercase text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800" onClick={storeSelfieAndNavigate}>envoyez</button>
+        <button className="font-bold w-fit px-6 py-1 rounded-md uppercase text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 text-center" onClick={lastChanceOrNot}>dernière chance</button>
     </div>
     </div>
   )} else {
@@ -52,7 +52,7 @@ export const PhotoPage = ({imageUrl}) => {
       <div className='webcam-container'>
       {imageUrl && <img src={imageUrl} alt="Selfie" />}
       <div className='button-container'>
-        <Link to='/thank_you' onClick={storeSelfieAndNavigate}>BG</Link>
+        <Link to='/thank_you' className="font-bold w-fit px-6 py-1 rounded-md uppercase text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800" onClick={storeSelfieAndNavigate}>envoyez</Link>
       </div>
     </div>
     )
