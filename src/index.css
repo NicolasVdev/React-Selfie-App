@@ -4,7 +4,7 @@
 
 video {
   width: 100%;
-  height: fit-content;
+  height: auto;
 }
 
 .webcam-container {
