@@ -34,7 +34,7 @@ export const Camera = () => {
       />
       <div className='button-container'>
         <button onClick={capturePhoto}>
-          <img src={btn} />
+          <img src={btn} className='w-20 h-auto' />
         </button>
       </div>
       {url && (
