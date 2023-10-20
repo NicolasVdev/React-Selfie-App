@@ -37,7 +37,7 @@ export const Home = () => {
   });
 
   return (
-    <div className="flex flex-col items-center w-screen h-screen justify-center pb-72">
+    <div>
       <img
         src={logo}
         className="h-100 w-300 flex justify-center"
