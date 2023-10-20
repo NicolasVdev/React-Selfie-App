@@ -37,7 +37,7 @@ export const Home = () => {
   });
 
   return (
-    <>
+    <div className="flex flex-col items-center w-screen h-screen justify-center pb-72">
       <img
         src={logo}
         className="h-100 w-300 flex justify-center"
@@ -45,18 +45,18 @@ export const Home = () => {
         title="LOGO_3F_2021web"
         data-src="https://les3fromages.com/wp-content/uploads/2022/04/LOGO_3F_2021web.png"
       />
-      <h1 className="text-white text-4xl font-bold flex justify-center py-10">
+      <h1 className="text-white text-5xl font-bold text-center py-10">
         Bienvenue au concert des 3 Fromages !
       </h1>
-      <div className="font-semibold flex flex-col pb-12 text-2xl">
-        <p className="flex justify-center pb-1">
+      <div className="font-semibold flex flex-col mx-20 pb-12 text-2xl">
+        <p className="text-justify pb-2">
           Pour l'occasion, nous vous proposons un concours de selfie.
         </p>
-        <p className="flex justify-center pb-1">
+        <p className="text-justify pb-2">
           Afin de participer, rien de plus simple : entrez votre e-mail,
           prenez-vous en photo et envoyez-la.
         </p>
-        <p className="flex justify-center">
+        <p className="text-justify">
           Un tirage au sort sera réalisé, et tu recevras un e-mail pour
           t'informer du résultat.
         </p>
@@ -86,6 +86,6 @@ export const Home = () => {
           />
         </div>
       </form>
-    </>
+    </div>
   );
 };
