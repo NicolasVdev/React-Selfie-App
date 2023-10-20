@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 const videoConstraints = {
   width: 1280,
-  height: 720,
+  height: 960,
   facingMode: 'user'
 }
 
